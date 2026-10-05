@@ -40,7 +40,10 @@ int main(void) {
     reset_navigation(&nav,KEY_OK);assert(nav.detail); reset_navigation(&nav,KEY_UP);assert(nav.selected_day==27);
     reset_navigation(&nav,KEY_DOWN);assert(nav.selected_day==0);reset_navigation(&nav,KEY_BACK);assert(!nav.detail);
     reset_navigation(&nav,KEY_UP);assert(nav.page==0);reset_navigation(&nav,KEY_OK);reset_navigation(&nav,KEY_UP);assert(nav.scroll==0);
-    for(int i=0;i<100;++i)reset_navigation(&nav,KEY_DOWN);assert(nav.scroll==24);
+    for(int i=0;i<100;++i) {
+        reset_navigation(&nav,KEY_DOWN);
+    }
+    assert(nav.scroll==24);
     char text[7]; reset_copy_text(text,sizeof(text),"abc世界z");assert(!strcmp(text,"abc??z"));
     reset_copy_text(text,1,"abc");assert(text[0]==0);assert(!reset_font_codepoint(0x9f98));
     puts("Reset model: PASS (stream boundaries, invalid markup, DST, dates, navigation, UTF-8)");
