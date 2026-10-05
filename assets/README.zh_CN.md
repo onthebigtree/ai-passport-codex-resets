@@ -15,6 +15,14 @@
 - 添加字库前评估 Flash 与内部 RAM 影响；ESP32-C3 无 PSRAM。
 - 不提交许可不允许分发的字库。
 
+### Codex Resets 界面字体
+
+- `fonts/NotoSansSC.ttf`：来自 [Google Fonts](https://github.com/google/fonts/tree/main/ofl/notosanssc) 的 Noto Sans SC 可变字体，使用 SIL OFL 1.1 许可，见 `fonts/OFL.txt`。
+- `fonts/reset-ui-medium.ttf`：字重 500 的子集，供 LVGL 转换器和网页共用。
+- `fonts/reset_font_14.c`：14 px、4 bpp、未压缩的 LVGL 子集，由 `tools/generate_reset_font.py` 使用 `lv_font_conv@1.5.3` 生成，通过 `main/CMakeLists.txt` 编译进固件。
+- `fonts/reset_glyphs.json`：固定文案的完整字符清单，包含 ASCII、中文和标点。`preview/passport.woff2` 为相同字体来源的网页子集。生成时检查源字体 cmap；`tools/check_reset_font.py` 独立检查生成文件的字形注释，并包含缺字反例。
+- 动态重置公告使用 ASCII 原文，不支持的字符显示为 `?`。这不是完整中文字库，见[应用说明](../docs/apps/codex-resets.zh_CN.md)。
+
 ## 图片（images）
 
 可复用的源图与生成的显示资产放在 `images/`。

@@ -1,0 +1,7 @@
+{
+  "name": "ai-passport-codex-resets",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {"preview": "python3 preview/server.py", "fonts": "python3 tools/generate_reset_font.py"},
+  "devDependencies": {"lv_font_conv": "1.5.3"}
+}

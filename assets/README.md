@@ -17,6 +17,14 @@ Store reusable font files and generated font sources in `fonts/`.
 - Check Flash and internal-RAM impact before adding a font; the ESP32-C3 has no PSRAM.
 - Do not commit fonts whose license does not permit redistribution.
 
+### Codex Resets UI font
+
+- `fonts/NotoSansSC.ttf`: Noto Sans SC variable font, from [Google Fonts](https://github.com/google/fonts/tree/main/ofl/notosanssc), licensed under SIL OFL 1.1 (`fonts/OFL.txt`).
+- `fonts/reset-ui-medium.ttf`: weight-500 subset shared by the LVGL converter and browser.
+- `fonts/reset_font_14.c`: 14 px, 4 bpp, uncompressed LVGL subset, generated with `lv_font_conv@1.5.3` by `tools/generate_reset_font.py`. Compiled into the application from `main/CMakeLists.txt`.
+- `fonts/reset_glyphs.json`: complete fixed-UI inventory; ASCII plus the Chinese and punctuation in application strings. `preview/passport.woff2` is the same source subset for the browser. Generation verifies the source cmap; `tools/check_reset_font.py` independently checks the generated glyph comments, including a negative coverage case.
+- Dynamic reset announcements use ASCII originals with visible `?` replacement for unsupported code points. This is not a full CJK font. See [the application guide](../docs/apps/codex-resets.md).
+
 ## Images
 
 Store reusable source images and generated display assets in `images/`.

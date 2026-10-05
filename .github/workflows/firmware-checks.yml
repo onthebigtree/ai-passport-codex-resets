@@ -9,6 +9,7 @@ on:
   push:
     branches:
       - main
+      - feature/codex-resets
     paths-ignore:
       - "docs/**"
       - "skills/**"

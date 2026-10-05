@@ -2,6 +2,10 @@ build/
 sdkconfig
 sdkconfig.old
 managed_components/
+.toolchain/
+preview/.cache/
+__pycache__/
+node_modules/
 .vscode/
 .idea/
 
